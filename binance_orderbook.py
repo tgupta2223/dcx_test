@@ -20,7 +20,7 @@ class Client():
         self.orderbook = {}
         self.updates = 0
 
-    def connect_kafka_producer():
+    def connect_kafka_producer(self):
         _producer = None
         try:
             _producer = KafkaProducer(bootstrap_servers=['3.23.63.223:9092'],
@@ -76,7 +76,7 @@ class Client():
     def on_open(self):
         print('Connected to Binance\n')
 
-    def json_serializer(data):
+    def json_serializer(self, data):
         return json.dumps(data).encode("utf-8")
 
     # Loop through all bid and ask updates, call manage_orderbook accordingly
