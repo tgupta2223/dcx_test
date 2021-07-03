@@ -103,6 +103,7 @@ class Client():
                 # update values
                 if qty == 0:
                     del self.orderbook[side]
+                    kafka_producer.send("binance_orderbook", self.orderbook)
                     print(f'Removed {price} {qty}')
                     break
                 else:
@@ -116,6 +117,7 @@ class Client():
             elif price > self.orderbook[side][x][0]:
                 if qty != 0:
                     self.orderbook[side].insert(x, update)
+                    kafka_producer.send("binance_orderbook", self.orderbook)
                     print(f'New price: {price} {qty}')
                     break
                 else:
