@@ -41,8 +41,8 @@ def s3_to_db():
     cur = conn.cursor()
 
     sql = """copy users_coindcx from 's3://iakshaybucket/data_processing.csv'
-        access_key_id 'AKIA5BU5MSRFIDZ2Z6MM'
-        secret_access_key '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'
+        access_key_id '<aws access key>'
+        secret_access_key '<aws secret key>'
         region 'us-east-2'
         ignoreheader 1
         null as 'NA'
@@ -54,8 +54,8 @@ def s3_to_db():
 
 if __name__ == '__main__':
     # Always use .env file to store your credentials
-    ACCESS_KEY = 'AKIA5BU5MSRFIDZ2Z6MM'
-    SECRET_KEY = 'SF+thvQ50WxMDgS0dAjykTDyJT6n1qspllc+0klp'
+    ACCESS_KEY = '<aws access key>'
+    SECRET_KEY = '<aws secret key>'
 
     file_path = "C:\\Users\\tgupta\\Desktop\\data_processing.csv"
     process_data(file_path)
